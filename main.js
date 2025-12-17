@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+const { useState } = React;
 
 const artGenres = {
   // 1820s-1850s
@@ -212,7 +212,7 @@ const eras = [
   { start: 1775, end: 1950, label: "Digital Age", year: "2010-Present", color: "#4169E120" },
 ];
 
-export default function ArtGenreFlowDiagram() {
+function ArtGenreFlowDiagram() {
   const [selectedGenre, setSelectedGenre] = useState(null);
   const [hoveredGenre, setHoveredGenre] = useState(null);
   
