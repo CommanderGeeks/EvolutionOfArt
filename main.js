@@ -485,7 +485,8 @@ function ArtGenreFlowDiagram() {
                 className={`genre-node ${genre.main ? 'main-node' : ''}`}
                 transform={`translate(${genre.x}, ${genre.y})`}
                 onClick={() => setSelectedGenre(selectedGenre === key ? null : key)}
-                style={{ opacity: dimmed ? 0.25 : 1, cursor: 'pointer' }}
+                opacity={dimmed ? 0.25 : 1}
+                filter={isSelected ? 'brightness(1.3)' : undefined}
               >
                 <rect
                   x="0"
@@ -496,10 +497,6 @@ function ArtGenreFlowDiagram() {
                   fill={genre.color}
                   stroke={genre.main ? "#fff" : "transparent"}
                   strokeWidth={genre.main ? 2 : 0}
-                  style={{
-                    filter: isSelected ? 'brightness(1.3)' : 'none',
-                    cursor: 'pointer'
-                  }}
                 />
                 <text
                   x={genre.main ? 70 : 60}
@@ -509,7 +506,7 @@ function ArtGenreFlowDiagram() {
                   fontSize={genre.main ? 12 : 10}
                   fontFamily="'Source Sans Pro', sans-serif"
                   fontWeight={genre.main ? 600 : 400}
-                  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)', pointerEvents: 'none' }}
+                  pointerEvents="none"
                 >
                   {genre.name}
                 </text>
@@ -520,7 +517,7 @@ function ArtGenreFlowDiagram() {
                     r="4"
                     fill="#fff"
                     opacity="0.3"
-                    style={{ pointerEvents: 'none' }}
+                    pointerEvents="none"
                   />
                 )}
               </g>
