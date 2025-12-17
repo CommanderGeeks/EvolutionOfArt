@@ -214,7 +214,6 @@ const eras = [
 
 function ArtGenreFlowDiagram() {
   const [selectedGenre, setSelectedGenre] = useState(null);
-  const [hoveredGenre, setHoveredGenre] = useState(null);
   
   const getPath = (from, to, type) => {
     const fromGenre = artGenres[from];
@@ -256,10 +255,10 @@ function ArtGenreFlowDiagram() {
   };
 
   const isConnected = (genreKey) => {
-    if (!hoveredGenre) return false;
+    if (!selectedGenre) return false;
     return connections.some(
-      c => (c.from === hoveredGenre && c.to === genreKey) || 
-           (c.to === hoveredGenre && c.from === genreKey)
+      c => (c.from === selectedGenre && c.to === genreKey) || 
+           (c.to === selectedGenre && c.from === genreKey)
     );
   };
 
@@ -447,8 +446,8 @@ function ArtGenreFlowDiagram() {
               const style = getLineStyle(conn.type);
               if (!path) return null;
               
-              const isHighlighted = hoveredGenre && 
-                (conn.from === hoveredGenre || conn.to === hoveredGenre);
+              const isHighlighted = selectedGenre && 
+                (conn.from === selectedGenre || conn.to === selectedGenre);
               
               return (
                 <path
@@ -456,7 +455,7 @@ function ArtGenreFlowDiagram() {
                   d={path}
                   fill="none"
                   {...style}
-                  opacity={hoveredGenre ? (isHighlighted ? 1 : 0.15) : style.opacity}
+                  opacity={selectedGenre ? (isHighlighted ? 1 : 0.15) : style.opacity}
                   strokeWidth={isHighlighted ? style.strokeWidth * 1.5 : style.strokeWidth}
                   className="connection-path"
                   markerEnd={conn.type === "main" ? "url(#arrowhead)" : undefined}
@@ -481,17 +480,15 @@ function ArtGenreFlowDiagram() {
           
           {/* Genre nodes */}
           {Object.entries(artGenres).map(([key, genre]) => {
-            const isHovered = hoveredGenre === key;
+            const isSelected = selectedGenre === key;
             const isRelated = isConnected(key);
-            const dimmed = hoveredGenre && !isHovered && !isRelated;
+            const dimmed = selectedGenre && !isSelected && !isRelated;
             
             return (
               <g
                 key={key}
                 className={`genre-node ${genre.main ? 'main-node' : ''}`}
                 transform={`translate(${genre.x}, ${genre.y})`}
-                onMouseEnter={() => setHoveredGenre(key)}
-                onMouseLeave={() => setHoveredGenre(null)}
                 onClick={() => setSelectedGenre(selectedGenre === key ? null : key)}
                 style={{ opacity: dimmed ? 0.25 : 1, cursor: 'pointer' }}
               >
@@ -505,7 +502,7 @@ function ArtGenreFlowDiagram() {
                   stroke={genre.main ? "#fff" : "transparent"}
                   strokeWidth={genre.main ? 2 : 0}
                   style={{
-                    filter: isHovered ? 'brightness(1.3)' : 'none',
+                    filter: isSelected ? 'brightness(1.3)' : 'none',
                     cursor: 'pointer'
                   }}
                 />
@@ -535,45 +532,6 @@ function ArtGenreFlowDiagram() {
             );
           })}
         </svg>
-        
-        {/* Hover Tooltip */}
-        {hoveredGenre && artGenres[hoveredGenre] && (
-          <div style={{
-            position: 'fixed',
-            bottom: '80px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            background: 'rgba(26, 26, 46, 0.98)',
-            border: '1px solid #4a4a6a',
-            borderRadius: '8px',
-            padding: '12px 16px',
-            maxWidth: '400px',
-            pointerEvents: 'none',
-            zIndex: 999,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(10px)'
-          }}>
-            <p style={{
-              margin: 0,
-              color: artGenres[hoveredGenre].color,
-              fontSize: '14px',
-              fontWeight: 600,
-              marginBottom: '6px',
-              fontFamily: "'Source Sans Pro', sans-serif"
-            }}>
-              {artGenres[hoveredGenre].name}
-            </p>
-            <p style={{
-              margin: 0,
-              color: '#f5f5f5',
-              fontSize: '13px',
-              lineHeight: '1.5',
-              fontFamily: "'Source Sans Pro', sans-serif"
-            }}>
-              {artGenres[hoveredGenre].desc}
-            </p>
-          </div>
-        )}
       </div>
       
       {/* Info Panel */}
@@ -676,7 +634,7 @@ function ArtGenreFlowDiagram() {
         fontFamily: "'Source Sans Pro', sans-serif",
         fontSize: '12px'
       }}>
-        <p>Scroll horizontally to explore • Hover to highlight connections • Click for details</p>
+        <p>Scroll horizontally to explore • Click genres to highlight connections and view details</p>
       </div>
     </div>
   );
