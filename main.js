@@ -326,7 +326,7 @@ function ArtGenreFlowDiagram() {
           letterSpacing: '2px',
           textShadow: '0 0 40px rgba(147, 112, 219, 0.5)'
         }}>
-          The Flow of Art
+          The Evolution Of Art
         </h1>
         <p style={{
           fontFamily: "'Source Sans Pro', sans-serif",
