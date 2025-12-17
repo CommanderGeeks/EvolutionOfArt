@@ -274,12 +274,7 @@ function ArtGenreFlowDiagram() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
         
         .genre-node {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
-        }
-        .genre-node:hover {
-          transform: scale(1.08);
-          filter: brightness(1.2);
         }
         .main-node {
           filter: drop-shadow(0 0 12px rgba(255,255,255,0.3));
