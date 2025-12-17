@@ -101,6 +101,7 @@ const artGenres = {
   nftArt: { name: "NFT/Crypto Art", year: 2017, x: 1850, y: 160, main: false, color: "#9932CC", desc: "Digital artworks authenticated and sold using blockchain technology, creating new models of ownership and value." },
   aiArt: { name: "AI Art", year: 2020, x: 1850, y: 240, main: false, color: "#4169E1", desc: "Created using artificial intelligence and machine learning algorithms, raising questions about creativity and authorship." },
   metamodernism: { name: "Metamodernism", year: 2010, x: 1850, y: 320, main: false, color: "#FF69B4", desc: "Oscillates between sincerity and irony, seeking meaning while acknowledging postmodern skepticism." },
+  memeArt: { name: "Meme Art", year: 2023, x: 1850, y: 400, main: true, color: "#00FF00", desc: "Internet-native art form using humor, remixing, and viral cultural references to create participatory, rapidly-evolving visual communication." },
 };
 
 // Define connections between genres
@@ -196,6 +197,13 @@ const connections = [
   { from: "digitalArt", to: "nftArt", type: "evolution" },
   { from: "digitalArt", to: "aiArt", type: "evolution" },
   { from: "postmodernism", to: "metamodernism", type: "evolution" },
+  
+  // Meme Art connections
+  { from: "postInternet", to: "memeArt", type: "main" },
+  { from: "popArt", to: "memeArt", type: "influence" },
+  { from: "appropriation", to: "memeArt", type: "influence" },
+  { from: "digitalArt", to: "memeArt", type: "branch" },
+  { from: "metamodernism", to: "memeArt", type: "influence" },
 ];
 
 const eras = [
