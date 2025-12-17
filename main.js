@@ -493,7 +493,7 @@ function ArtGenreFlowDiagram() {
                 onMouseEnter={() => setHoveredGenre(key)}
                 onMouseLeave={() => setHoveredGenre(null)}
                 onClick={() => setSelectedGenre(selectedGenre === key ? null : key)}
-                style={{ opacity: dimmed ? 0.25 : 1 }}
+                style={{ opacity: dimmed ? 0.25 : 1, cursor: 'pointer' }}
               >
                 <rect
                   x="0"
@@ -505,7 +505,8 @@ function ArtGenreFlowDiagram() {
                   stroke={genre.main ? "#fff" : "transparent"}
                   strokeWidth={genre.main ? 2 : 0}
                   style={{
-                    filter: isHovered ? 'brightness(1.3)' : 'none'
+                    filter: isHovered ? 'brightness(1.3)' : 'none',
+                    cursor: 'pointer'
                   }}
                 />
                 <text
@@ -516,7 +517,7 @@ function ArtGenreFlowDiagram() {
                   fontSize={genre.main ? 12 : 10}
                   fontFamily="'Source Sans Pro', sans-serif"
                   fontWeight={genre.main ? 600 : 400}
-                  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
+                  style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)', pointerEvents: 'none' }}
                 >
                   {genre.name}
                 </text>
@@ -527,6 +528,7 @@ function ArtGenreFlowDiagram() {
                     r="4"
                     fill="#fff"
                     opacity="0.3"
+                    style={{ pointerEvents: 'none' }}
                   />
                 )}
               </g>
@@ -537,20 +539,30 @@ function ArtGenreFlowDiagram() {
         {/* Hover Tooltip */}
         {hoveredGenre && artGenres[hoveredGenre] && (
           <div style={{
-            position: 'absolute',
-            left: `${artGenres[hoveredGenre].x + (artGenres[hoveredGenre].main ? 70 : 60)}px`,
-            top: `${artGenres[hoveredGenre].y + (artGenres[hoveredGenre].main ? 40 : 36)}px`,
+            position: 'fixed',
+            bottom: '80px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             background: 'rgba(26, 26, 46, 0.98)',
             border: '1px solid #4a4a6a',
             borderRadius: '8px',
             padding: '12px 16px',
-            maxWidth: '280px',
+            maxWidth: '400px',
             pointerEvents: 'none',
-            zIndex: 1000,
-            transform: 'translateX(-50%)',
+            zIndex: 999,
             boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
             backdropFilter: 'blur(10px)'
           }}>
+            <p style={{
+              margin: 0,
+              color: artGenres[hoveredGenre].color,
+              fontSize: '14px',
+              fontWeight: 600,
+              marginBottom: '6px',
+              fontFamily: "'Source Sans Pro', sans-serif"
+            }}>
+              {artGenres[hoveredGenre].name}
+            </p>
             <p style={{
               margin: 0,
               color: '#f5f5f5',
