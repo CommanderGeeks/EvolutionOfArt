@@ -101,7 +101,9 @@ const artGenres = {
   nftArt: { name: "NFT/Crypto Art", year: 2017, x: 1850, y: 160, main: false, color: "#9932CC", desc: "Digital artworks authenticated and sold using blockchain technology, creating new models of ownership and value." },
   aiArt: { name: "AI Art", year: 2020, x: 1850, y: 240, main: false, color: "#4169E1", desc: "Created using artificial intelligence and machine learning algorithms, raising questions about creativity and authorship." },
   metamodernism: { name: "Metamodernism", year: 2010, x: 1850, y: 320, main: false, color: "#FF69B4", desc: "Oscillates between sincerity and irony, seeking meaning while acknowledging postmodern skepticism." },
-  memeArt: { name: "Meme Art", year: 2023, x: 1850, y: 400, main: true, color: "#00FF00", desc: "Internet-native art form using humor, remixing, and viral cultural references to create participatory, rapidly-evolving visual communication." },
+  
+  // 2020s-Future
+  memeArt: { name: "Meme Art", year: 2023, x: 2000, y: 80, main: true, color: "#00FF00", desc: "Internet-native art form using humor, remixing, and viral cultural references to create participatory, rapidly-evolving visual communication." },
 };
 
 // Define connections between genres
@@ -218,6 +220,7 @@ const eras = [
   { start: 1475, end: 1625, label: "Postmodernism", year: "1980-2000", color: "#9932CC20" },
   { start: 1625, end: 1775, label: "Contemporary", year: "1990-2015", color: "#2E8B5720" },
   { start: 1775, end: 1950, label: "Digital Age", year: "2010-Present", color: "#4169E120" },
+  { start: 1950, end: 2150, label: "Meme Era", year: "2020-Future", color: "#00FF0020" },
 ];
 
 function ArtGenreFlowDiagram() {
@@ -375,7 +378,7 @@ function ArtGenreFlowDiagram() {
         paddingBottom: '20px'
       }}>
         <svg 
-          width="1950" 
+          width="2150" 
           height="720" 
           style={{
             display: 'block',
