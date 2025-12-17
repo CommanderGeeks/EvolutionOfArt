@@ -2,105 +2,105 @@ const { useState } = React;
 
 const artGenres = {
   // 1820s-1850s
-  romanticism: { name: "Romanticism", year: 1820, x: 50, y: 80, main: true, color: "#8B4513" },
-  neoclassicism: { name: "Neoclassicism", year: 1820, x: 50, y: 160, main: false, color: "#4A5568" },
-  biedermeier: { name: "Biedermeier", year: 1825, x: 50, y: 240, main: false, color: "#6B7280" },
-  hudsonRiver: { name: "Hudson River School", year: 1825, x: 50, y: 320, main: false, color: "#2D5A27" },
+  romanticism: { name: "Romanticism", year: 1820, x: 50, y: 80, main: true, color: "#8B4513", desc: "Emphasized emotion, individualism, and the glorification of nature and the past, often featuring dramatic landscapes and intense feelings." },
+  neoclassicism: { name: "Neoclassicism", year: 1820, x: 50, y: 160, main: false, color: "#4A5568", desc: "Drew inspiration from classical Greek and Roman art, emphasizing order, symmetry, and rational thought." },
+  biedermeier: { name: "Biedermeier", year: 1825, x: 50, y: 240, main: false, color: "#6B7280", desc: "A German and Austrian style focusing on domestic comfort, simplicity, and middle-class values in the home." },
+  hudsonRiver: { name: "Hudson River School", year: 1825, x: 50, y: 320, main: false, color: "#2D5A27", desc: "American landscape painting movement celebrating the natural beauty of the Hudson River Valley and American wilderness." },
   
   // 1850s-1870s
-  realism: { name: "Realism", year: 1850, x: 200, y: 80, main: true, color: "#5D4E37" },
-  preRaphaelite: { name: "Pre-Raphaelite", year: 1848, x: 200, y: 160, main: false, color: "#8B0000" },
-  orientalism: { name: "Orientalism", year: 1850, x: 200, y: 240, main: false, color: "#B8860B" },
-  barbizon: { name: "Barbizon School", year: 1850, x: 200, y: 320, main: false, color: "#556B2F" },
-  luminism: { name: "Luminism", year: 1855, x: 200, y: 400, main: false, color: "#DEB887" },
+  realism: { name: "Realism", year: 1850, x: 200, y: 80, main: true, color: "#5D4E37", desc: "Rejected romanticized idealism to depict everyday life and ordinary people with accuracy and social awareness." },
+  preRaphaelite: { name: "Pre-Raphaelite", year: 1848, x: 200, y: 160, main: false, color: "#8B0000", desc: "English movement rejecting industrial-age painting for medieval-inspired detail, vibrant colors, and literary themes." },
+  orientalism: { name: "Orientalism", year: 1850, x: 200, y: 240, main: false, color: "#B8860B", desc: "Western artists' romanticized depictions of Middle Eastern and Asian cultures, often emphasizing exoticism." },
+  barbizon: { name: "Barbizon School", year: 1850, x: 200, y: 320, main: false, color: "#556B2F", desc: "French painters who worked outdoors in Barbizon forest, pioneering naturalistic landscape painting." },
+  luminism: { name: "Luminism", year: 1855, x: 200, y: 400, main: false, color: "#DEB887", desc: "American style emphasizing light effects, horizontal compositions, and serene atmospheric landscapes." },
   
   // 1860s-1880s
-  impressionism: { name: "Impressionism", year: 1870, x: 350, y: 80, main: true, color: "#6B98C4" },
-  academicism: { name: "Academic Art", year: 1865, x: 350, y: 160, main: false, color: "#4A4A4A" },
-  aestheticism: { name: "Aestheticism", year: 1870, x: 350, y: 240, main: false, color: "#9370DB" },
-  japonisme: { name: "Japonisme", year: 1872, x: 350, y: 320, main: false, color: "#DC143C" },
+  impressionism: { name: "Impressionism", year: 1870, x: 350, y: 80, main: true, color: "#6B98C4", desc: "Revolutionary movement capturing fleeting moments and light effects through visible brushstrokes and vibrant colors." },
+  academicism: { name: "Academic Art", year: 1865, x: 350, y: 160, main: false, color: "#4A4A4A", desc: "Traditional European art following strict rules of composition, technique, and classical subjects taught in academies." },
+  aestheticism: { name: "Aestheticism", year: 1870, x: 350, y: 240, main: false, color: "#9370DB", desc: "Promoted 'art for art's sake,' valuing beauty and sensory experience over moral or narrative content." },
+  japonisme: { name: "Japonisme", year: 1872, x: 350, y: 320, main: false, color: "#DC143C", desc: "Western fascination with Japanese art and design, influencing composition, color, and decorative elements." },
   
   // 1880s-1900s
-  postImpressionism: { name: "Post-Impressionism", year: 1885, x: 500, y: 80, main: true, color: "#FF6B35" },
-  neoImpressionism: { name: "Neo-Impressionism", year: 1886, x: 500, y: 160, main: false, color: "#4169E1" },
-  pointillism: { name: "Pointillism", year: 1886, x: 500, y: 240, main: false, color: "#20B2AA" },
-  symbolism: { name: "Symbolism", year: 1885, x: 500, y: 320, main: false, color: "#483D8B" },
-  artNouveau: { name: "Art Nouveau", year: 1890, x: 500, y: 400, main: false, color: "#228B22" },
-  nabis: { name: "Les Nabis", year: 1888, x: 500, y: 480, main: false, color: "#CD853F" },
+  postImpressionism: { name: "Post-Impressionism", year: 1885, x: 500, y: 80, main: true, color: "#FF6B35", desc: "Extended Impressionism with symbolic content, geometric forms, and emotional expression through color and structure." },
+  neoImpressionism: { name: "Neo-Impressionism", year: 1886, x: 500, y: 160, main: false, color: "#4169E1", desc: "Systematic approach using color theory and optical mixing with small dots of pure color (Pointillism)." },
+  pointillism: { name: "Pointillism", year: 1886, x: 500, y: 240, main: false, color: "#20B2AA", desc: "Technique of painting using tiny dots of pure color that blend optically when viewed from a distance." },
+  symbolism: { name: "Symbolism", year: 1885, x: 500, y: 320, main: false, color: "#483D8B", desc: "Emphasized dreams, emotions, and ideas through symbolic imagery rather than realistic representation." },
+  artNouveau: { name: "Art Nouveau", year: 1890, x: 500, y: 400, main: false, color: "#228B22", desc: "Decorative style featuring organic forms, flowing lines, and nature-inspired motifs across art and architecture." },
+  nabis: { name: "Les Nabis", year: 1888, x: 500, y: 480, main: false, color: "#CD853F", desc: "French group using flat colors and simplified forms to create decorative, spiritually-inspired compositions." },
   
   // 1900s-1920s
-  fauvism: { name: "Fauvism", year: 1905, x: 650, y: 80, main: true, color: "#FF4500" },
-  expressionism: { name: "Expressionism", year: 1905, x: 650, y: 160, main: true, color: "#8B0000" },
-  cubism: { name: "Cubism", year: 1907, x: 650, y: 240, main: true, color: "#2F4F4F" },
-  futurism: { name: "Futurism", year: 1909, x: 650, y: 320, main: false, color: "#FF8C00" },
-  orphism: { name: "Orphism", year: 1912, x: 650, y: 400, main: false, color: "#9932CC" },
-  syntheticCubism: { name: "Synthetic Cubism", year: 1912, x: 650, y: 480, main: false, color: "#696969" },
-  vorticism: { name: "Vorticism", year: 1914, x: 650, y: 560, main: false, color: "#1C1C1C" },
+  fauvism: { name: "Fauvism", year: 1905, x: 650, y: 80, main: true, color: "#FF4500", desc: "Used wild, non-naturalistic colors and bold brushwork to express emotion over realistic representation." },
+  expressionism: { name: "Expressionism", year: 1905, x: 650, y: 160, main: true, color: "#8B0000", desc: "Distorted forms and exaggerated colors to convey intense emotions, anxiety, and subjective experiences." },
+  cubism: { name: "Cubism", year: 1907, x: 650, y: 240, main: true, color: "#2F4F4F", desc: "Revolutionary style fragmenting objects into geometric shapes shown from multiple viewpoints simultaneously." },
+  futurism: { name: "Futurism", year: 1909, x: 650, y: 320, main: false, color: "#FF8C00", desc: "Italian movement celebrating speed, technology, and dynamic movement of modern industrial life." },
+  orphism: { name: "Orphism", year: 1912, x: 650, y: 400, main: false, color: "#9932CC", desc: "Colorful, abstract offshoot of Cubism emphasizing pure color and light with lyrical, musical qualities." },
+  syntheticCubism: { name: "Synthetic Cubism", year: 1912, x: 650, y: 480, main: false, color: "#696969", desc: "Later Cubist phase using simplified shapes, brighter colors, and collage techniques with mixed media." },
+  vorticism: { name: "Vorticism", year: 1914, x: 650, y: 560, main: false, color: "#1C1C1C", desc: "British movement combining Cubist fragmentation with Futurist dynamism in angular, machine-age forms." },
   
   // 1910s-1930s
-  abstractArt: { name: "Abstract Art", year: 1912, x: 800, y: 80, main: true, color: "#4B0082" },
-  suprematism: { name: "Suprematism", year: 1915, x: 800, y: 160, main: false, color: "#000000" },
-  dada: { name: "Dadaism", year: 1916, x: 800, y: 240, main: true, color: "#8B4513" },
-  constructivism: { name: "Constructivism", year: 1917, x: 800, y: 320, main: false, color: "#B22222" },
-  deStijl: { name: "De Stijl", year: 1917, x: 800, y: 400, main: false, color: "#0000CD" },
-  bauhaus: { name: "Bauhaus", year: 1919, x: 800, y: 480, main: false, color: "#DC143C" },
-  precisionism: { name: "Precisionism", year: 1920, x: 800, y: 560, main: false, color: "#708090" },
-  artDeco: { name: "Art Deco", year: 1920, x: 800, y: 640, main: false, color: "#DAA520" },
+  abstractArt: { name: "Abstract Art", year: 1912, x: 800, y: 80, main: true, color: "#4B0082", desc: "Abandoned realistic representation for pure forms, colors, and lines to express ideas and emotions." },
+  suprematism: { name: "Suprematism", year: 1915, x: 800, y: 160, main: false, color: "#000000", desc: "Russian movement using basic geometric shapes and limited colors to achieve pure artistic feeling." },
+  dada: { name: "Dadaism", year: 1916, x: 800, y: 240, main: true, color: "#8B4513", desc: "Anti-art movement mocking established aesthetics through absurdity, chance, and readymade objects." },
+  constructivism: { name: "Constructivism", year: 1917, x: 800, y: 320, main: false, color: "#B22222", desc: "Russian movement emphasizing art as social purpose using industrial materials and geometric abstraction." },
+  deStijl: { name: "De Stijl", year: 1917, x: 800, y: 400, main: false, color: "#0000CD", desc: "Dutch movement seeking universal harmony through primary colors, straight lines, and rectangular forms." },
+  bauhaus: { name: "Bauhaus", year: 1919, x: 800, y: 480, main: false, color: "#DC143C", desc: "German school unifying art, craft, and technology with functional design and geometric simplicity." },
+  precisionism: { name: "Precisionism", year: 1920, x: 800, y: 560, main: false, color: "#708090", desc: "American style depicting industrial landscapes with sharp edges, geometric forms, and smooth surfaces." },
+  artDeco: { name: "Art Deco", year: 1920, x: 800, y: 640, main: false, color: "#DAA520", desc: "Glamorous decorative style combining modern materials with geometric patterns and luxurious ornamentation." },
   
   // 1920s-1940s
-  surrealism: { name: "Surrealism", year: 1924, x: 950, y: 80, main: true, color: "#800080" },
-  magicRealism: { name: "Magic Realism", year: 1925, x: 950, y: 160, main: false, color: "#006400" },
-  socialRealism: { name: "Social Realism", year: 1930, x: 950, y: 240, main: false, color: "#8B4513" },
-  harlemRenaissance: { name: "Harlem Renaissance", year: 1925, x: 950, y: 320, main: false, color: "#8B4513" },
-  newObjectivity: { name: "New Objectivity", year: 1925, x: 950, y: 400, main: false, color: "#556B2F" },
-  regionalism: { name: "Regionalism", year: 1930, x: 950, y: 480, main: false, color: "#8B7355" },
+  surrealism: { name: "Surrealism", year: 1924, x: 950, y: 80, main: true, color: "#800080", desc: "Explored the unconscious mind through dreamlike imagery, automatism, and unexpected juxtapositions." },
+  magicRealism: { name: "Magic Realism", year: 1925, x: 950, y: 160, main: false, color: "#006400", desc: "Combined realistic technique with fantastical elements, presenting magical occurrences as everyday reality." },
+  socialRealism: { name: "Social Realism", year: 1930, x: 950, y: 240, main: false, color: "#8B4513", desc: "Depicted working-class life and social issues to raise awareness and promote political change." },
+  harlemRenaissance: { name: "Harlem Renaissance", year: 1925, x: 950, y: 320, main: false, color: "#8B4513", desc: "African American cultural movement celebrating Black identity, heritage, and artistic expression." },
+  newObjectivity: { name: "New Objectivity", year: 1925, x: 950, y: 400, main: false, color: "#556B2F", desc: "German post-WWI movement using sharp focus and unsentimental realism to critique society." },
+  regionalism: { name: "Regionalism", year: 1930, x: 950, y: 480, main: false, color: "#8B7355", desc: "American art depicting rural and small-town life with realistic detail and nostalgic patriotism." },
   
   // 1940s-1960s
-  abstractExpressionism: { name: "Abstract Expressionism", year: 1945, x: 1100, y: 80, main: true, color: "#191970" },
-  colorField: { name: "Color Field", year: 1950, x: 1100, y: 160, main: false, color: "#FF1493" },
-  actionPainting: { name: "Action Painting", year: 1950, x: 1100, y: 240, main: false, color: "#000000" },
-  cobra: { name: "CoBrA", year: 1948, x: 1100, y: 320, main: false, color: "#FF4500" },
-  artBrut: { name: "Art Brut", year: 1945, x: 1100, y: 400, main: false, color: "#8B4513" },
+  abstractExpressionism: { name: "Abstract Expressionism", year: 1945, x: 1100, y: 80, main: true, color: "#191970", desc: "American movement emphasizing spontaneous, gestural painting to express inner emotional and spiritual states." },
+  colorField: { name: "Color Field", year: 1950, x: 1100, y: 160, main: false, color: "#FF1493", desc: "Large areas of flat, solid color creating contemplative, immersive experiences through chromatic relationships." },
+  actionPainting: { name: "Action Painting", year: 1950, x: 1100, y: 240, main: false, color: "#000000", desc: "Energetic, physical approach to painting emphasizing the spontaneous act of creation itself." },
+  cobra: { name: "CoBrA", year: 1948, x: 1100, y: 320, main: false, color: "#FF4500", desc: "European group embracing spontaneity, primitive art, and childlike expression in colorful, energetic works." },
+  artBrut: { name: "Art Brut", year: 1945, x: 1100, y: 400, main: false, color: "#8B4513", desc: "Raw, untrained art by self-taught creators, valued for its authenticity and freedom from artistic convention." },
   
   // 1950s-1970s
-  popArt: { name: "Pop Art", year: 1958, x: 1250, y: 80, main: true, color: "#FF0000" },
-  neoExpr: { name: "Neo-Expressionism", year: 1975, x: 1250, y: 160, main: false, color: "#8B0000" },
-  minimalism: { name: "Minimalism", year: 1960, x: 1250, y: 240, main: true, color: "#2F4F4F" },
-  opArt: { name: "Op Art", year: 1964, x: 1250, y: 320, main: false, color: "#000000" },
-  hardEdge: { name: "Hard-Edge", year: 1959, x: 1250, y: 400, main: false, color: "#4169E1" },
-  newRealism: { name: "Nouveau Réalisme", year: 1960, x: 1250, y: 480, main: false, color: "#696969" },
-  fluxus: { name: "Fluxus", year: 1962, x: 1250, y: 560, main: false, color: "#808080" },
+  popArt: { name: "Pop Art", year: 1958, x: 1250, y: 80, main: true, color: "#FF0000", desc: "Embraced mass culture, consumerism, and advertising imagery with bold colors and commercial techniques." },
+  neoExpr: { name: "Neo-Expressionism", year: 1975, x: 1250, y: 160, main: false, color: "#8B0000", desc: "Revived expressive, figurative painting with rough brushwork and emotional intensity against minimalism." },
+  minimalism: { name: "Minimalism", year: 1960, x: 1250, y: 240, main: true, color: "#2F4F4F", desc: "Stripped art to essential geometric forms and pure elements, removing personal expression and symbolism." },
+  opArt: { name: "Op Art", year: 1964, x: 1250, y: 320, main: false, color: "#000000", desc: "Created optical illusions and visual effects through precise patterns, contrast, and geometric arrangements." },
+  hardEdge: { name: "Hard-Edge", year: 1959, x: 1250, y: 400, main: false, color: "#4169E1", desc: "Abstract painting with clean, sharp edges between areas of flat, unmodulated color." },
+  newRealism: { name: "Nouveau Réalisme", year: 1960, x: 1250, y: 480, main: false, color: "#696969", desc: "French movement incorporating everyday objects and commercial materials into art as social commentary." },
+  fluxus: { name: "Fluxus", year: 1962, x: 1250, y: 560, main: false, color: "#808080", desc: "International network blending art and life through performances, happenings, and experimental multimedia works." },
   
   // 1960s-1980s
-  conceptualArt: { name: "Conceptual Art", year: 1967, x: 1400, y: 80, main: true, color: "#696969" },
-  landArt: { name: "Land Art", year: 1968, x: 1400, y: 160, main: false, color: "#228B22" },
-  performanceArt: { name: "Performance Art", year: 1970, x: 1400, y: 240, main: false, color: "#8B008B" },
-  photorealism: { name: "Photorealism", year: 1970, x: 1400, y: 320, main: false, color: "#4A4A4A" },
-  videoArt: { name: "Video Art", year: 1970, x: 1400, y: 400, main: false, color: "#1E90FF" },
-  feministArt: { name: "Feminist Art", year: 1970, x: 1400, y: 480, main: false, color: "#FF69B4" },
+  conceptualArt: { name: "Conceptual Art", year: 1967, x: 1400, y: 80, main: true, color: "#696969", desc: "Prioritized ideas and concepts over visual aesthetics, often using text, documentation, and ephemeral actions." },
+  landArt: { name: "Land Art", year: 1968, x: 1400, y: 160, main: false, color: "#228B22", desc: "Created large-scale interventions in natural landscapes, often remote and documented through photography." },
+  performanceArt: { name: "Performance Art", year: 1970, x: 1400, y: 240, main: false, color: "#8B008B", desc: "Used the artist's body and live actions as the medium, often exploring identity, endurance, and social issues." },
+  photorealism: { name: "Photorealism", year: 1970, x: 1400, y: 320, main: false, color: "#4A4A4A", desc: "Painted from photographs with extreme detail and precision, mimicking photographic appearance exactly." },
+  videoArt: { name: "Video Art", year: 1970, x: 1400, y: 400, main: false, color: "#1E90FF", desc: "Explored video technology as artistic medium for installations, performances, and time-based narratives." },
+  feministArt: { name: "Feminist Art", year: 1970, x: 1400, y: 480, main: false, color: "#FF69B4", desc: "Challenged patriarchal art world structures while exploring women's experiences, bodies, and identities." },
   
-  // 1980s-2000s
-  postmodernism: { name: "Postmodernism", year: 1980, x: 1550, y: 80, main: true, color: "#9932CC" },
-  neoGeo: { name: "Neo-Geo", year: 1985, x: 1550, y: 160, main: false, color: "#00CED1" },
-  transavantgarde: { name: "Transavantgarde", year: 1980, x: 1550, y: 240, main: false, color: "#DC143C" },
-  graffiti: { name: "Graffiti Art", year: 1980, x: 1550, y: 320, main: false, color: "#FF4500" },
-  appropriation: { name: "Appropriation", year: 1982, x: 1550, y: 400, main: false, color: "#708090" },
-  yba: { name: "Young British Artists", year: 1988, x: 1550, y: 480, main: false, color: "#00008B" },
+  // 1980s-Present
+  postmodernism: { name: "Postmodernism", year: 1980, x: 1550, y: 80, main: true, color: "#9932CC", desc: "Questioned grand narratives and embraced irony, pastiche, and the mixing of high and low culture." },
+  neoGeo: { name: "Neo-Geo", year: 1985, x: 1550, y: 160, main: false, color: "#00CED1", desc: "Revived geometric abstraction with commentary on consumerism through industrial materials and forms." },
+  transavantgarde: { name: "Transavantgarde", year: 1980, x: 1550, y: 240, main: false, color: "#DC143C", desc: "Italian movement returning to figurative painting with mythological and historical references." },
+  graffiti: { name: "Graffiti Art", year: 1980, x: 1550, y: 320, main: false, color: "#FF4500", desc: "Brought street culture into galleries with bold lettering, urban imagery, and rebellious energy." },
+  appropriation: { name: "Appropriation", year: 1982, x: 1550, y: 400, main: false, color: "#708090", desc: "Borrowed existing images and objects to critique authorship, originality, and mass media culture." },
+  yba: { name: "Young British Artists", year: 1988, x: 1550, y: 480, main: false, color: "#00008B", desc: "British group known for shocking, conceptual works exploring death, identity, and celebrity culture." },
   
   // 1990s-2020s
-  contemporaryArt: { name: "Contemporary Art", year: 1995, x: 1700, y: 80, main: true, color: "#2E8B57" },
-  digitalArt: { name: "Digital Art", year: 1995, x: 1700, y: 160, main: false, color: "#00BFFF" },
-  installationArt: { name: "Installation Art", year: 1990, x: 1700, y: 240, main: false, color: "#8B4513" },
-  bioArt: { name: "Bio Art", year: 2000, x: 1700, y: 320, main: false, color: "#32CD32" },
-  netArt: { name: "Net Art", year: 1995, x: 1700, y: 400, main: false, color: "#4169E1" },
-  newMediaArt: { name: "New Media Art", year: 2000, x: 1700, y: 480, main: false, color: "#9370DB" },
-  streetArt: { name: "Street Art", year: 2000, x: 1700, y: 560, main: false, color: "#FF6347" },
+  contemporaryArt: { name: "Contemporary Art", year: 1995, x: 1700, y: 80, main: true, color: "#2E8B57", desc: "Diverse, global art of the present moment, reflecting current social, political, and technological realities." },
+  digitalArt: { name: "Digital Art", year: 1995, x: 1700, y: 160, main: false, color: "#00BFFF", desc: "Created using digital technology including computer graphics, animation, and interactive media." },
+  installationArt: { name: "Installation Art", year: 1990, x: 1700, y: 240, main: false, color: "#8B4513", desc: "Transformed entire spaces into immersive, three-dimensional artistic environments and experiences." },
+  bioArt: { name: "Bio Art", year: 2000, x: 1700, y: 320, main: false, color: "#32CD32", desc: "Used living organisms, biological processes, and biotechnology as artistic materials and subjects." },
+  netArt: { name: "Net Art", year: 1995, x: 1700, y: 400, main: false, color: "#4169E1", desc: "Created specifically for and distributed through the internet, exploring online culture and connectivity." },
+  newMediaArt: { name: "New Media Art", year: 2000, x: 1700, y: 480, main: false, color: "#9370DB", desc: "Encompassed art using emerging technologies including virtual reality, AI, and interactive systems." },
+  streetArt: { name: "Street Art", year: 2000, x: 1700, y: 560, main: false, color: "#FF6347", desc: "Public visual art created in urban environments, from stencils and murals to installations and interventions." },
   
   // 2010s-Present
-  postInternet: { name: "Post-Internet Art", year: 2010, x: 1850, y: 80, main: false, color: "#00CED1" },
-  nftArt: { name: "NFT/Crypto Art", year: 2017, x: 1850, y: 160, main: false, color: "#9932CC" },
-  aiArt: { name: "AI Art", year: 2020, x: 1850, y: 240, main: false, color: "#4169E1" },
-  metamodernism: { name: "Metamodernism", year: 2010, x: 1850, y: 320, main: false, color: "#FF69B4" },
+  postInternet: { name: "Post-Internet Art", year: 2010, x: 1850, y: 80, main: false, color: "#00CED1", desc: "Art shaped by internet culture, exploring online/offline relationships and digital aesthetics in physical space." },
+  nftArt: { name: "NFT/Crypto Art", year: 2017, x: 1850, y: 160, main: false, color: "#9932CC", desc: "Digital artworks authenticated and sold using blockchain technology, creating new models of ownership and value." },
+  aiArt: { name: "AI Art", year: 2020, x: 1850, y: 240, main: false, color: "#4169E1", desc: "Created using artificial intelligence and machine learning algorithms, raising questions about creativity and authorship." },
+  metamodernism: { name: "Metamodernism", year: 2010, x: 1850, y: 320, main: false, color: "#FF69B4", desc: "Oscillates between sincerity and irony, seeking meaning while acknowledging postmodern skepticism." },
 };
 
 // Define connections between genres
@@ -533,6 +533,35 @@ function ArtGenreFlowDiagram() {
             );
           })}
         </svg>
+        
+        {/* Hover Tooltip */}
+        {hoveredGenre && artGenres[hoveredGenre] && (
+          <div style={{
+            position: 'absolute',
+            left: `${artGenres[hoveredGenre].x + (artGenres[hoveredGenre].main ? 70 : 60)}px`,
+            top: `${artGenres[hoveredGenre].y + (artGenres[hoveredGenre].main ? 40 : 36)}px`,
+            background: 'rgba(26, 26, 46, 0.98)',
+            border: '1px solid #4a4a6a',
+            borderRadius: '8px',
+            padding: '12px 16px',
+            maxWidth: '280px',
+            pointerEvents: 'none',
+            zIndex: 1000,
+            transform: 'translateX(-50%)',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(10px)'
+          }}>
+            <p style={{
+              margin: 0,
+              color: '#f5f5f5',
+              fontSize: '13px',
+              lineHeight: '1.5',
+              fontFamily: "'Source Sans Pro', sans-serif"
+            }}>
+              {artGenres[hoveredGenre].desc}
+            </p>
+          </div>
+        )}
       </div>
       
       {/* Info Panel */}
@@ -579,6 +608,15 @@ function ArtGenreFlowDiagram() {
                     Major Movement
                   </span>
                 )}
+              </p>
+              <p style={{
+                margin: '12px 0 0',
+                color: '#ccc',
+                fontFamily: "'Source Sans Pro', sans-serif",
+                fontSize: '14px',
+                lineHeight: '1.6'
+              }}>
+                {artGenres[selectedGenre].desc}
               </p>
             </div>
             <button
