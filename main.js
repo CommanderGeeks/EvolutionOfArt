@@ -106,6 +106,380 @@ const artGenres = {
   memeArt: { name: "Meme Art", year: 2023, x: 2000, y: 80, main: true, color: "#00FF00", desc: "Internet-native art form using humor, remixing, and viral cultural references to create participatory, rapidly-evolving visual communication." },
 };
 
+// Comprehensive movement data for accordion
+const movements = [
+  {
+    name: "Romanticism",
+    years: "c. 1780–1850",
+    color: "#8B4513",
+    overview: `Romanticism emerged as a direct rebellion against the rationalism of the Enlightenment and the rigid formality of Neoclassicism. Where the preceding era celebrated reason, order, and classical restraint, the Romantics championed emotion, imagination, and the untamed power of nature.
+
+The movement arose during a period of profound upheaval. The French Revolution had shattered assumptions about social order. The Industrial Revolution was transforming landscapes and uprooting traditional ways of life. In response, Romantic artists turned inward, seeking authenticity in individual emotion, and outward, toward the sublime terror and beauty of the natural world.`,
+    principles: [
+      "Elevation of emotion and intuition over reason and logic",
+      "Celebration of the sublime in nature—its power to inspire awe and terror",
+      "Emphasis on individualism, genius, and the artist as visionary",
+      "Interest in the exotic, medieval, and supernatural"
+    ],
+    artists: [
+      { name: "Caspar David Friedrich", contribution: "Master of the sublime landscape; solitary figures facing vast natural expanses" },
+      { name: "J.M.W. Turner", contribution: "Revolutionary treatment of light and atmosphere" },
+      { name: "Eugène Delacroix", contribution: "Brought Romantic passion to history painting with dynamic compositions" }
+    ],
+    impact: "Romanticism fundamentally altered the purpose of art, elevating the artist from skilled craftsman to visionary genius. It expanded what counted as worthy subject matter, democratizing content that would eventually encompass commercial imagery and digital culture.",
+    connection: "By the mid-nineteenth century, Romanticism's emotional intensity began to feel excessive. The Industrial Revolution demanded artistic engagement with contemporary reality. Realism emerged as the necessary correction—artists who would look unflinchingly at the world as it actually was."
+  },
+  {
+    name: "Realism",
+    years: "c. 1840–1880",
+    color: "#5D4E37",
+    overview: `Realism represented a decisive turn toward the contemporary world. Where Romantics sought transcendence in nature and emotion, the Realists insisted on depicting life as it was actually lived—particularly the lives of ordinary people that academic art had ignored.
+
+The movement emerged in France during a period of revolutionary ferment. Gustave Courbet declared that painting could only depict what the eye could see, rejecting idealization and mythological subjects. His monumental canvases of stone breakers and provincial funerals scandalized the establishment by according dignity to subjects considered beneath serious attention.`,
+    principles: [
+      "Depiction of contemporary life without idealization",
+      "Focus on ordinary people, particularly the working class",
+      "Rejection of historical, mythological, and religious subjects",
+      "Scientific observation and attention to accurate detail"
+    ],
+    artists: [
+      { name: "Gustave Courbet", contribution: "Founding figure who scandalized Paris with unflinching depictions of provincial life" },
+      { name: "Jean-François Millet", contribution: "Immortalized the dignity of peasant labor" },
+      { name: "Édouard Manet", contribution: "Bridged Realism and Impressionism with modern subjects and flat paint handling" }
+    ],
+    impact: "Realism shattered the hierarchy of subjects that had governed Western art. By insisting that a stone breaker deserved the same scale as a Roman emperor, it democratized art's content in ways that continue to resonate.",
+    connection: "Realism's commitment to observation opened a door. If the goal was to capture contemporary reality, then the studio—with its controlled lighting—was inadequate. The next generation would take their canvases outdoors. Impressionism was born from Realism's premises, pushed to their logical conclusion."
+  },
+  {
+    name: "Impressionism",
+    years: "c. 1860–1886",
+    color: "#6B98C4",
+    overview: `Impressionism marked the decisive break with academic tradition that launched modern art. The movement took its name from a critic's dismissive description of Monet's "Impression, Sunrise"—a term intended as insult that the artists adopted with defiant pride.
+
+The Impressionists worked en plein air, painting outdoors to capture the actual effects of natural light. Their loose brushwork and bright palettes initially scandalized audiences accustomed to the smooth surfaces and dark tones of academic painting.`,
+    principles: [
+      "Capture of fleeting moments and transient effects of light",
+      "Visible brushstrokes rejecting smooth academic finish",
+      "Painting en plein air from direct observation",
+      "Bright, pure colors mixing optically",
+      "Modern urban and suburban life as subject matter"
+    ],
+    artists: [
+      { name: "Claude Monet", contribution: "Serial paintings of haystacks, cathedrals, and water lilies" },
+      { name: "Pierre-Auguste Renoir", contribution: "Brought Impressionist light to Parisian social life" },
+      { name: "Edgar Degas", contribution: "Combined Impressionist observation with classical draftsmanship" }
+    ],
+    impact: "Impressionism established the model for avant-garde practice: artists defining their own terms of success rather than seeking institutional approval. This organizational innovation proved as influential as their aesthetic one.",
+    connection: "By the mid-1880s, the Impressionist moment had passed. Its commitment to surface appearance left little room for the symbolic or deeply personal. Post-Impressionism emerged as artists pushed beyond these boundaries in different directions."
+  },
+  {
+    name: "Post-Impressionism",
+    years: "c. 1886–1910",
+    color: "#FF6B35",
+    overview: `Post-Impressionism is less a unified movement than a constellation of individual responses to Impressionism's limitations. The key figures—Cézanne, Van Gogh, Gauguin, Seurat—shared little beyond their emergence from Impressionism and dissatisfaction with it.
+
+Cézanne sought to "make of Impressionism something solid," restructuring nature into geometric forms. Van Gogh charged color with emotional intensity. Gauguin pursued symbolic meaning in non-naturalistic color. Together, they opened every path that twentieth-century art would explore.`,
+    principles: [
+      "Rejection of Impressionism's exclusive focus on visual appearance",
+      "Emphasis on structure, symbolic meaning, or emotional expression",
+      "Bold, non-naturalistic use of color",
+      "Geometric simplification of natural forms",
+      "Individual vision over collective movement style"
+    ],
+    artists: [
+      { name: "Paul Cézanne", contribution: "Geometric restructuring laid groundwork for Cubism and abstraction" },
+      { name: "Vincent van Gogh", contribution: "Transformed color and brushwork into vehicles of emotional expression" },
+      { name: "Paul Gauguin", contribution: "Pursued symbolic meaning through flat, non-naturalistic color" }
+    ],
+    impact: "Post-Impressionism established the pluralism that would define modern art. Multiple valid responses to the same artistic problem could coexist. Individual artists could pursue radically different paths, each legitimate on its own terms.",
+    connection: "The paths opened by Post-Impressionism led in multiple directions. Cézanne's geometric analysis pointed toward Cubism. Van Gogh's intensity presaged Expressionism. Gauguin's color influenced the Fauves. The early twentieth century would see these possibilities explode."
+  },
+  {
+    name: "Fauvism",
+    years: "c. 1904–1908",
+    color: "#FF4500",
+    overview: `Fauvism announced itself with explosive color. At the 1905 Salon d'Automne, a group of young painters exhibited works of such chromatic intensity that they were called "les fauves"—the wild beasts.
+
+Henri Matisse, André Derain, and their associates had pushed non-naturalistic color to unprecedented extremes. The movement was brief but transformative, demonstrating that color need not describe—it could simply be.`,
+    principles: [
+      "Pure, intense color without reference to natural appearance",
+      "Spontaneous, energetic brushwork",
+      "Simplified forms and flattened pictorial space",
+      "Emotional expression through color",
+      "Rejection of academic technique"
+    ],
+    artists: [
+      { name: "Henri Matisse", contribution: "The movement's leader explored color's expressive possibilities across seven decades" },
+      { name: "André Derain", contribution: "Created radical landscapes replacing natural color with pure chromatic intensity" },
+      { name: "Maurice de Vlaminck", contribution: "Approached color with visceral, almost violent energy" }
+    ],
+    impact: "By demonstrating that color could operate autonomously, the Fauves completed the liberation from naturalism. This freedom proved essential for Expressionism's emotional intensity and ultimately the arbitrary color of digital imagery.",
+    connection: "Even as Fauvism peaked, its successor germinated. Georges Braque encountered Cézanne's work in 1907 and began restructuring his paintings geometrically. Picasso completed Les Demoiselles d'Avignon. Cubism emerged, and Fauvism's moment passed."
+  },
+  {
+    name: "Expressionism",
+    years: "c. 1905–1925",
+    color: "#8B0000",
+    overview: `Expressionism emerged simultaneously with Fauvism but from different soil. Where the French Fauves celebrated color, the German Expressionists deployed distortion in service of psychological and social truth.
+
+The movement arose in a culture wrestling with industrialization, urban alienation, and the approaching catastrophe of World War I. Its distortions—angular figures, jarring colors, claustrophobic spaces—externalized anxiety, isolation, and spiritual crisis.`,
+    principles: [
+      "Distortion of form to express emotional states",
+      "Intense color for emotional effect",
+      "Rejection of academic technique for raw execution",
+      "Focus on alienation, anxiety, and spiritual crisis",
+      "Art as direct expression of inner experience"
+    ],
+    artists: [
+      { name: "Ernst Ludwig Kirchner", contribution: "Angular urban scenes captured modern alienation" },
+      { name: "Edvard Munch", contribution: "'The Scream' became the iconic image of modern anxiety" },
+      { name: "Wassily Kandinsky", contribution: "Pushed Expressionism toward pure abstraction" }
+    ],
+    impact: "Expressionism established that art's purpose could be the externalization of internal experience. Subjective psychological truth was as valid as external reality. This principle would prove foundational for Abstract Expressionism and Neo-Expressionism.",
+    connection: "Expressionism's emphasis on subjective experience pointed toward increasing abstraction, as Kandinsky pursued pure expression freed from representation. It also led toward Dada and Surrealism, which would explore different territories of irrational and unconscious experience."
+  },
+  {
+    name: "Cubism",
+    years: "c. 1907–1925",
+    color: "#2F4F4F",
+    overview: `Cubism shattered the single viewpoint that had governed Western painting since the Renaissance. Picasso and Braque developed a revolutionary approach depicting objects from multiple angles simultaneously.
+
+The movement evolved through distinct phases. Analytic Cubism pushed fragmentation toward near-abstraction. Synthetic Cubism reversed direction, building images from flat shapes and introducing collage—actual newspaper and wallpaper pasted onto canvas.`,
+    principles: [
+      "Simultaneous representation of multiple viewpoints",
+      "Fragmentation of forms into geometric planes",
+      "Rejection of single-point perspective",
+      "Collage and mixed media as legitimate techniques",
+      "Conceptual understanding over visual appearance"
+    ],
+    artists: [
+      { name: "Pablo Picasso", contribution: "'Les Demoiselles d'Avignon' launched the revolution" },
+      { name: "Georges Braque", contribution: "Methodical experimentation developed Cubism's technical vocabulary" },
+      { name: "Juan Gris", contribution: "Brought systematic clarity to Synthetic Cubism" }
+    ],
+    impact: "Cubism demonstrated that representation could be conceptual rather than perceptual. Art could show what we know rather than what we see. The introduction of collage collapsed the boundary between art and everyday life.",
+    connection: "Cubism's innovations spread rapidly, spawning Futurism in Italy, Constructivism in Russia, and De Stijl in the Netherlands. Its conceptual turn would reach logical conclusion in Dada's anti-art provocations and Duchamp's readymades."
+  },
+  {
+    name: "Abstract Art",
+    years: "c. 1910–Present",
+    color: "#4B0082",
+    overview: `Abstraction—creation of images without reference to the visible world—represents the most radical departure in Western art history. For millennia, art had been defined by representation. The abstract pioneers abandoned it entirely.
+
+Several artists arrived at abstraction independently around 1910–1912: Kandinsky, Malevich, Mondrian. Each followed different paths but all concluded that representation was unnecessary. Art could address the viewer directly through visual relationships alone.`,
+    principles: [
+      "Complete abandonment of representation",
+      "Pure visual relationships as content",
+      "Direct emotional or spiritual address",
+      "Emphasis on formal properties of the medium",
+      "Art as autonomous object"
+    ],
+    artists: [
+      { name: "Wassily Kandinsky", contribution: "Justified abstraction through spiritual philosophy" },
+      { name: "Piet Mondrian", contribution: "Reduced painting to primary colors and straight lines" },
+      { name: "Kazimir Malevich", contribution: "'Black Square' represented pure artistic feeling without content" }
+    ],
+    impact: "Abstraction changed what art could be. Visual experience could be meaningful without representation. Any combination of colors, shapes, and marks could potentially constitute art.",
+    connection: "By the 1950s, abstract painting had become so refined it seemed to leave nowhere to go. Abstract Expressionism injected personal drama. Meanwhile, Dada and Surrealism explored content that formal abstraction had excluded."
+  },
+  {
+    name: "Dadaism",
+    years: "c. 1916–1924",
+    color: "#8B4513",
+    overview: `Dada was born in Zurich in 1916, as Europe consumed itself in World War I. The movement was less an artistic style than total revolt against the civilization that produced the war.
+
+If rational European culture led to mechanized mass death, the Dadaists would embrace irrationality, chance, and nonsense. Duchamp submitted a urinal to an exhibition. Schwitters made collages from garbage. Every gesture attacked assumptions about what art was.`,
+    principles: [
+      "Anti-art stance rejecting established aesthetic values",
+      "Embrace of chance, irrationality, and nonsense",
+      "Use of readymades—ordinary objects as art",
+      "Provocation and scandal as strategies",
+      "Collective, collaborative, performative approaches"
+    ],
+    artists: [
+      { name: "Marcel Duchamp", contribution: "Readymades forever changed what could count as art" },
+      { name: "Hugo Ball", contribution: "Sound poetry and absurdist performances launched the movement" },
+      { name: "Hannah Höch", contribution: "Pioneer of photomontage critiquing gender and politics" }
+    ],
+    impact: "Dada's legacy is conceptual. By questioning art's definition, they opened territories artists continue to explore. The readymade established that art could be primarily about ideas rather than skill.",
+    connection: "Dada burned bright and brief. Many participants moved into Surrealism, which shared interest in the irrational but channeled it toward systematic exploration of the unconscious."
+  },
+  {
+    name: "Surrealism",
+    years: "c. 1924–1966",
+    color: "#800080",
+    overview: `Surrealism transformed Dada's anarchic negation into a sustained program for exploring the unconscious mind. Founded by André Breton in 1924, the movement drew on Freudian psychoanalysis to access repressed contents of the psyche.
+
+The Surrealists developed techniques to bypass conscious censorship: automatic writing, dream recording, collaborative games. Their images combined familiar elements in impossible configurations—melting watches, burning giraffes—creating what Breton called "the marvelous."`,
+    principles: [
+      "Exploration of the unconscious and dream imagery",
+      "Automatism and chance to access deeper truths",
+      "Juxtaposition of unrelated objects",
+      "Rejection of rationalism",
+      "Art as tool for psychological liberation"
+    ],
+    artists: [
+      { name: "Salvador Dalí", contribution: "'Paranoiac-critical method' produced iconic images like 'The Persistence of Memory'" },
+      { name: "René Magritte", contribution: "Precisely rendered impossibilities questioned reality" },
+      { name: "Max Ernst", contribution: "Developed frottage and grattage techniques" }
+    ],
+    impact: "Surrealism transformed visual culture beyond fine art. Its techniques of unexpected juxtaposition and dream logic were adopted by advertising, film, and fashion. The strange became familiar; Surrealist imagery permeates commercial culture from perfume ads to memes.",
+    connection: "Surrealism remained vital into the 1960s, but its center shifted. New York had become the avant-garde capital. Surrealists who fled Europe influenced Americans who would transform automatism into Abstract Expressionism."
+  },
+  {
+    name: "Abstract Expressionism",
+    years: "c. 1943–1965",
+    color: "#191970",
+    overview: `Abstract Expressionism was the first major movement to emerge from the United States, announcing American dominance of the postwar art world. The movement combined history painting's scale with Surrealist automatism and European abstraction's innovations.
+
+Its massive canvases demanded physical encounter. "Action painters" emphasized the physical act of painting. "Color field" painters created vast expanses for contemplative experience. Both understood painting as existential act of self-revelation.`,
+    principles: [
+      "Monumental scale demanding physical encounter",
+      "Spontaneous, gestural painting",
+      "Direct expression of the artist's psyche",
+      "Rejection of traditional composition",
+      "Art as existential act"
+    ],
+    artists: [
+      { name: "Jackson Pollock", contribution: "Revolutionary 'drip' technique made the act of painting visible" },
+      { name: "Willem de Kooning", contribution: "Maintained connection to the figure with Abstract Expressionist intensity" },
+      { name: "Mark Rothko", contribution: "Luminous color fields intended to produce spiritual response" }
+    ],
+    impact: "Abstract Expressionism established New York as the art world center, demonstrating American culture could produce art of highest ambition. The tortured, devoted artist became a cultural archetype.",
+    connection: "By the late 1950s, younger artists found its existential drama exhausting. Pop Art would puncture pretension with advertising imagery. Minimalism would strip away personal expression. Both defined themselves against Abstract Expressionism."
+  },
+  {
+    name: "Pop Art",
+    years: "c. 1955–1970",
+    color: "#FF0000",
+    overview: `Pop Art collapsed the boundary between high art and mass culture. Where Abstract Expressionists positioned themselves against commercial society, Pop artists embraced it—reproducing advertisements, comics, packaging, and celebrity images.
+
+The soup can, the comic panel, the movie star's face: these became legitimate artistic subjects, rendered with care that Renaissance painters lavished on madonnas. The movement emerged simultaneously in Britain and America but took different forms.`,
+    principles: [
+      "Elevation of commercial and popular imagery",
+      "Techniques borrowed from advertising",
+      "Flat, bold colors from commercial design",
+      "Ironic or ambiguous stance toward consumer culture",
+      "Rejection of Abstract Expressionist subjectivity"
+    ],
+    artists: [
+      { name: "Andy Warhol", contribution: "Silkscreens of soup cans, celebrities, and disasters defined Pop's ambiguous relationship to mass culture" },
+      { name: "Roy Lichtenstein", contribution: "Transformed comic strips into monumental paintings" },
+      { name: "Jasper Johns", contribution: "Paintings of flags and targets established everyday objects as legitimate subjects" }
+    ],
+    impact: "Pop Art's impact is almost impossible to overstate. By legitimizing commercial imagery, it dissolved boundaries that seemed essential to art's identity. Warhol's Factory model anticipated the artist's contemporary role as brand and content creator. If Warhol could paint soup cans, then the visual language of internet culture deserves artistic attention.",
+    connection: "Pop Art's irony offered one response to Abstract Expressionist excess. Minimalism offered another: elimination of all imagery, all expression, all content beyond the physical object itself."
+  },
+  {
+    name: "Minimalism",
+    years: "c. 1960–1975",
+    color: "#2F4F4F",
+    overview: `Minimalism pursued reduction to absolute essentials. Sculptors working in 1960s New York stripped art of everything except fundamental properties: shape, scale, material, space.
+
+No metaphor, no symbol, no expression. A steel cube was simply a steel cube—though that "nothing more" proved philosophically rich. Donald Judd insisted his works represented and expressed nothing beyond their own physical presence.`,
+    principles: [
+      "Reduction to fundamental geometric forms",
+      "Rejection of metaphor and representation",
+      "Emphasis on literal physical properties",
+      "Industrial fabrication replacing the artist's hand",
+      "Viewer's physical experience as content"
+    ],
+    artists: [
+      { name: "Donald Judd", contribution: "Wall-mounted boxes and stacks defined Minimalist aesthetics" },
+      { name: "Carl Andre", contribution: "Laid materials directly on the floor, eliminating the pedestal" },
+      { name: "Dan Flavin", contribution: "Transformed fluorescent fixtures into luminous spatial experiences" }
+    ],
+    impact: "Minimalism clarified questions about what art was and how it functioned. By stripping art to essentials, it forced examination of implicit assumptions. This self-reflexive questioning would accelerate into Conceptual Art's radical interrogations.",
+    connection: "Minimalism's austere objects seemed to leave nowhere to go. The answer was to eliminate the object entirely, replacing it with the idea of art. Conceptual Art emerged as artists argued that the idea itself was the work."
+  },
+  {
+    name: "Conceptual Art",
+    years: "c. 1965–1980",
+    color: "#696969",
+    overview: `Conceptual Art completed the dematerialization of the art object. If Minimalism reduced the object to essentials, Conceptual Art questioned whether an object was necessary at all.
+
+The work of art, these artists proposed, was the idea—communicated through text, documentation, instruction, or any means. Physical realization was optional. Sol LeWitt's statement became foundational: "The idea becomes a machine that makes the art."`,
+    principles: [
+      "The idea is the work; execution is secondary",
+      "Language as primary artistic medium",
+      "Critique of art institutions and market",
+      "Process and system over finished product",
+      "Art as inquiry into art's nature"
+    ],
+    artists: [
+      { name: "Sol LeWitt", contribution: "Wall drawings demonstrated that instructions could be the work" },
+      { name: "Joseph Kosuth", contribution: "Investigated relationships between objects, language, and meaning" },
+      { name: "Lawrence Weiner", contribution: "Stated that works need not be built; the statement was sufficient" }
+    ],
+    impact: "Conceptual Art's influence proved so pervasive its innovations became invisible. The contemporary expectation that artists should have ideas, that works require interpretation—all derive from Conceptual practice.",
+    connection: "Conceptual Art's interrogation of boundaries opened multiple paths. Performance and video emerged from its dematerialization. Postmodernism would extend its skepticism about truth claims across all cultural production."
+  },
+  {
+    name: "Postmodernism",
+    years: "c. 1970–Present",
+    color: "#9932CC",
+    overview: `Postmodernism marked the end of faith in grand narratives—including artistic progress. Where modern movements claimed to advance toward truth, Postmodernism rejected the idea of such progress.
+
+History was not advancement but a reservoir of materials to be recycled, quoted, and ironically juxtaposed. In architecture, it meant ornament against Modernist purity. In painting, the return of figuration and appropriation. Across all: rejection of originality, authenticity, and progress as guiding values.`,
+    principles: [
+      "Rejection of grand narratives and universal truth",
+      "Appropriation, quotation, and pastiche",
+      "Irony, skepticism, and deconstruction",
+      "Collapse of high/low culture boundaries",
+      "Recognition that meaning is constructed"
+    ],
+    artists: [
+      { name: "Cindy Sherman", contribution: "Explored identity as performance and media construction" },
+      { name: "Jean-Michel Basquiat", contribution: "Combined street art, text, and gesture critiquing race and art history" },
+      { name: "Barbara Kruger", contribution: "Appropriated advertising's language to critique consumer capitalism" }
+    ],
+    impact: "Postmodernism's skepticism about originality fundamentally changed how art could function. If no image was truly original, then appropriation became legitimate. This opened territory that digital culture would colonize—the meme as endless recombination.",
+    connection: "Postmodernism was less a bounded movement than a condition—assumptions that remain operative in contemporary practice. Its embrace of appropriation and collapse of cultural hierarchies find complete expression in internet culture."
+  },
+  {
+    name: "Contemporary Art",
+    years: "c. 1990–Present",
+    color: "#2E8B57",
+    overview: `Contemporary art resists definition because it encompasses everything made now. The term implies not a style but art of the present moment—made in conditions of unprecedented technological change, globalization, and collapse of consensus.
+
+Contemporary practice includes painting, sculpture, video, performance, installation, digital, and biological media. No medium is privileged; no approach is excluded. What characterizes it is pluralism—the absence of dominant style, the global expansion beyond Western centers.`,
+    principles: [
+      "Radical pluralism—no dominant style",
+      "Globalization beyond Western centers",
+      "Blurring of boundaries with entertainment and activism",
+      "Market and institutions as primary validators",
+      "Technology as tool and subject"
+    ],
+    artists: [
+      { name: "Ai Weiwei", contribution: "Work addresses human rights and political repression" },
+      { name: "Kara Walker", contribution: "Silhouettes confront American racial violence" },
+      { name: "Banksy", contribution: "Anonymous street artist critiquing consumerism and art market" }
+    ],
+    impact: "Contemporary art's impact is less stylistic innovation than institutional expansion. Art has become a global industry. The audience through museums and social media has grown exponentially.",
+    connection: "Contemporary art's pluralism and openness create space for emerging practices that might have been excluded. The same conditions that allowed street art and digital art to enter galleries permit attention to visual forms circulating online."
+  },
+  {
+    name: "Meme Art",
+    years: "c. 2020–Present/Future",
+    color: "#00FF00",
+    overview: `Meme Art represents the translation of digital visual culture into permanent physical form. The movement recognizes that memes—images created and shared by billions daily—constitute the visual language of the 21st century.
+
+They encode complex emotional, cultural, and social meaning in instantly transmissible formats. Artists working in this form select from the vast digital repository and render subjects in traditional media: bronze sculpture, oil on canvas. The logic is preservation.`,
+    principles: [
+      "Translation of digital vernacular into permanent physical media",
+      "Recognition of memes as dominant 21st century visual language",
+      "Physical scarcity as solution to digital abundance",
+      "Cultural preservation through material transformation",
+      "Traditional techniques serving contemporary content"
+    ],
+    artists: [
+      { name: "Peyote", contribution: "Founding artist; master bronze sculptor whose 6-foot Pepe in Giacometti style exemplifies the form's ambition" }
+    ],
+    impact: "Meme Art's emergence follows patterns visible throughout art history. When cultural meaning reaches critical mass, artists emerge to give it permanent form. Cave painters documented their communities. Impressionists recorded modern leisure. Meme artists preserve the spirit of their time in materials that outlast the moment. The movement resolves digital art's tension between infinite reproducibility and the scarcity art markets require.",
+    connection: "Meme Art extends Pop Art's legitimization of vernacular imagery, Appropriation art's embrace of existing images, Post-Internet art's engagement with digital culture, and contemporary pluralism's openness. It represents not rupture but culmination—the logical extension of art historical development into the visual culture that defines our age."
+  }
+];
+
 // Define connections between genres
 const connections = [
   // Main flow
@@ -225,6 +599,7 @@ const eras = [
 
 function ArtGenreFlowDiagram() {
   const [selectedGenre, setSelectedGenre] = useState(null);
+  const [expandedMovement, setExpandedMovement] = useState(null);
   
   const getPath = (from, to, type) => {
     const fromGenre = artGenres[from];
@@ -628,6 +1003,269 @@ function ArtGenreFlowDiagram() {
           </div>
         </div>
       )}
+      
+      {/* Movement Encyclopedia - Accordion Section */}
+      <div style={{
+        marginTop: '80px',
+        marginBottom: '60px',
+        maxWidth: '1200px',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      }}>
+        <h2 style={{
+          fontSize: '48px',
+          fontWeight: 700,
+          color: '#f5f5f5',
+          textAlign: 'center',
+          marginBottom: '16px',
+          letterSpacing: '2px',
+          textShadow: '0 0 40px rgba(147, 112, 219, 0.5)'
+        }}>
+          Movement Encyclopedia
+        </h2>
+        <p style={{
+          textAlign: 'center',
+          color: '#888',
+          fontSize: '18px',
+          marginBottom: '40px',
+          fontFamily: "'Source Sans Pro', sans-serif"
+        }}>
+          Click each movement to explore its history, principles, artists, and impact
+        </p>
+        
+        {movements.map((movement, index) => {
+          const isExpanded = expandedMovement === movement.name;
+          const isMemeArt = movement.name === "Meme Art";
+          
+          return (
+            <div 
+              key={movement.name}
+              style={{
+                marginBottom: '12px',
+                border: isMemeArt ? `2px solid ${movement.color}` : '1px solid #4a4a6a',
+                borderRadius: '8px',
+                overflow: 'hidden',
+                background: 'rgba(26, 26, 46, 0.6)',
+                boxShadow: isMemeArt ? `0 0 20px ${movement.color}40` : '0 2px 8px rgba(0,0,0,0.3)',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              {/* Accordion Header */}
+              <div
+                onClick={() => setExpandedMovement(isExpanded ? null : movement.name)}
+                style={{
+                  padding: isMemeArt ? '24px 32px' : '20px 28px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  background: isExpanded ? 'rgba(74, 74, 106, 0.3)' : 'transparent',
+                  transition: 'background 0.2s ease'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flex: 1 }}>
+                  <div 
+                    style={{
+                      width: isMemeArt ? '8px' : '6px',
+                      height: isMemeArt ? '48px' : '40px',
+                      background: movement.color,
+                      borderRadius: '3px',
+                      boxShadow: isMemeArt ? `0 0 12px ${movement.color}` : 'none'
+                    }}
+                  />
+                  <div>
+                    <h3 style={{
+                      margin: 0,
+                      color: movement.color,
+                      fontSize: isMemeArt ? '32px' : '28px',
+                      fontWeight: 600,
+                      fontFamily: "'Playfair Display', Georgia, serif",
+                      textShadow: isMemeArt ? `0 0 20px ${movement.color}60` : 'none'
+                    }}>
+                      {movement.name}
+                    </h3>
+                    <p style={{
+                      margin: '4px 0 0',
+                      color: '#aaa',
+                      fontSize: '14px',
+                      fontFamily: "'Source Sans Pro', sans-serif"
+                    }}>
+                      {movement.years}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Chevron Icon */}
+                <div style={{
+                  fontSize: '24px',
+                  color: '#888',
+                  transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.3s ease'
+                }}>
+                  ▼
+                </div>
+              </div>
+              
+              {/* Accordion Content */}
+              <div style={{
+                maxHeight: isExpanded ? '2000px' : '0',
+                opacity: isExpanded ? 1 : 0,
+                overflow: 'hidden',
+                transition: 'max-height 0.4s ease, opacity 0.3s ease'
+              }}>
+                <div style={{
+                  padding: '0 32px 32px',
+                  fontFamily: "'Source Sans Pro', sans-serif"
+                }}>
+                  {/* Overview */}
+                  <div style={{ marginBottom: '28px' }}>
+                    <h4 style={{
+                      color: '#ccc',
+                      fontSize: '18px',
+                      fontWeight: 600,
+                      marginBottom: '12px',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase'
+                    }}>
+                      Overview
+                    </h4>
+                    {movement.overview.split('\n\n').map((paragraph, i) => (
+                      <p key={i} style={{
+                        color: '#f5f5f5',
+                        fontSize: '16px',
+                        lineHeight: '1.8',
+                        marginBottom: '16px'
+                      }}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  
+                  {/* Core Principles */}
+                  <div style={{ marginBottom: '28px' }}>
+                    <h4 style={{
+                      color: '#ccc',
+                      fontSize: '18px',
+                      fontWeight: 600,
+                      marginBottom: '12px',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase'
+                    }}>
+                      Core Principles
+                    </h4>
+                    <ul style={{
+                      listStyle: 'none',
+                      padding: 0,
+                      margin: 0
+                    }}>
+                      {movement.principles.map((principle, i) => (
+                        <li key={i} style={{
+                          color: '#f5f5f5',
+                          fontSize: '15px',
+                          lineHeight: '1.6',
+                          marginBottom: '10px',
+                          paddingLeft: '24px',
+                          position: 'relative'
+                        }}>
+                          <span style={{
+                            position: 'absolute',
+                            left: 0,
+                            color: movement.color,
+                            fontSize: '18px'
+                          }}>•</span>
+                          {principle}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Notable Artists */}
+                  <div style={{ marginBottom: '28px' }}>
+                    <h4 style={{
+                      color: '#ccc',
+                      fontSize: '18px',
+                      fontWeight: 600,
+                      marginBottom: '12px',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase'
+                    }}>
+                      Notable Artists
+                    </h4>
+                    {movement.artists.map((artist, i) => (
+                      <div key={i} style={{ marginBottom: '14px' }}>
+                        <p style={{
+                          color: movement.color,
+                          fontSize: '16px',
+                          fontWeight: 600,
+                          margin: '0 0 4px 0'
+                        }}>
+                          {artist.name}
+                        </p>
+                        <p style={{
+                          color: '#ddd',
+                          fontSize: '15px',
+                          lineHeight: '1.6',
+                          margin: 0,
+                          paddingLeft: '16px'
+                        }}>
+                          {artist.contribution}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Societal Impact */}
+                  <div style={{ marginBottom: '28px' }}>
+                    <h4 style={{
+                      color: '#ccc',
+                      fontSize: '18px',
+                      fontWeight: 600,
+                      marginBottom: '12px',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase'
+                    }}>
+                      Societal Impact
+                    </h4>
+                    <p style={{
+                      color: '#f5f5f5',
+                      fontSize: '16px',
+                      lineHeight: '1.8',
+                      margin: 0
+                    }}>
+                      {movement.impact}
+                    </p>
+                  </div>
+                  
+                  {/* Connection to Next Movement */}
+                  <div>
+                    <h4 style={{
+                      color: '#ccc',
+                      fontSize: '18px',
+                      fontWeight: 600,
+                      marginBottom: '12px',
+                      letterSpacing: '1px',
+                      textTransform: 'uppercase'
+                    }}>
+                      Historical Connection
+                    </h4>
+                    <p style={{
+                      color: '#f5f5f5',
+                      fontSize: '16px',
+                      lineHeight: '1.8',
+                      margin: 0,
+                      paddingLeft: '16px',
+                      borderLeft: `3px solid ${movement.color}`,
+                      fontStyle: 'italic'
+                    }}>
+                      {movement.connection}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
       
       {/* Footer */}
       <div style={{
